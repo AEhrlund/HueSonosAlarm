@@ -1,3 +1,6 @@
 module.exports = {
-    publicPath: '/huesonosalarm/'
+  "publicPath": "/huesonosalarm/",
+  "transpileDependencies": [
+    "vuetify"
+  ]
 }
