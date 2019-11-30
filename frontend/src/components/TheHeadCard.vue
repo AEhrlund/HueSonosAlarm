@@ -1,12 +1,13 @@
 <template>
     <v-card
+        style="padding: 10px"
         elevation="15"
         color="blue darken-4"
         height="85">
-        <v-img
-            height="85px"
-            max-width="700px"
-            min-width="300px"
+        <v-img 
+            height="55px"
+            max-width="620px"
+            min-width="280px"
             contain
             :src="require('../assets/Logo.png')"
             >
@@ -21,8 +22,4 @@ export default {
 </script>
 
 <style scoped>
-.head-title-style {
-    padding: 10px;
-    font-family: "Comic Sans MS", cursive, sans-serif;
-}
 </style>
