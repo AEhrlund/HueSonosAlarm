@@ -1,5 +1,5 @@
 <template>
-    <v-content class="red">
+    <v-content class="blue">
         <v-content class="content-style">
             <v-layout column>
                 <v-flex class="flex-style">

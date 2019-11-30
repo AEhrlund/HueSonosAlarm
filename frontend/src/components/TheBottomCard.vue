@@ -1,9 +1,8 @@
 <template>
     <v-card
         elevation="15"
-        color="blue darken-4"
         height="calc(100vh - 85px - 400px - 40px)"
-        :img="require('../assets/Alarmclock.jpg')">
+        :img="require('../assets/Clouds.jpg')">
 
         <v-card-text class="text-center subtitle-1 bottom-text-style">
             © Alf Ehrlund 2019

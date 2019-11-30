@@ -2,17 +2,15 @@
     <v-card
         elevation="15"
         color="blue darken-4"
-        height="85"
-        :img="require('../assets/Clouds.jpg')">
-        
-        <v-card-title class="justify-center font-weight-black head-title-style">
-            <span>HUE + SONOS = ALARM</span>
-        </v-card-title>
-
-        <v-card-subtitle class="text-center subtitle-1">
-            View/Set/Clear alarm
-        </v-card-subtitle>
-
+        height="85">
+        <v-img
+            height="85px"
+            max-width="700px"
+            min-width="300px"
+            contain
+            :src="require('../assets/Logo.png')"
+            >
+        </v-img>
     </v-card>
 </template>
 
@@ -25,6 +23,6 @@ export default {
 <style scoped>
 .head-title-style {
     padding: 10px;
-    font-family: georgia;    
+    font-family: "Comic Sans MS", cursive, sans-serif;
 }
 </style>
