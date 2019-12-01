@@ -1,13 +1,13 @@
 <template>
     <v-card
-        style="padding: 10px"
+        style="padding-top: 10px"
         elevation="15"
         color="blue darken-4"
         height="85">
         <v-img 
-            height="55px"
-            max-width="620px"
-            min-width="280px"
+            height="60px"
+            max-width="700px"
+            min-width="285px"
             contain
             :src="require('../assets/Logo.png')"
             >
