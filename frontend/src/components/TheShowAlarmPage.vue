@@ -1,24 +1,22 @@
 <template>
-    <div
-        style="flex-direction: column" 
-        class="d-flex flex-column justify-between">
+    <div style="flex-direction: column" class="d-flex flex-column justify-between">
 
-        <v-row justify="center" class="mt-12 display-1 font-weight-medium">
+        <v-row justify="center" class="mt-12 ml-0 mr-0 display-1 font-weight-medium">
             The alarm is set!
         </v-row>
         
-        <v-row justify="center" class="mt-12 display-2 font-weight-light" style="text-align: center">
+        <v-row justify="center" class="mt-12 ml-0 mr-0 display-2 font-weight-light" style="text-align: center">
             Time: {{getAlarmTime()}}
         </v-row>
         
-        <v-row justify="center" class="mt-4 display-1 font-weight-light" style="text-align: center">
-            Fadein: {{getFadeTime()}} min
+        <v-row justify="center" class="mt-4 ml-0 mr-0 display-1 font-weight-light" style="text-align: center">
+            Fade in: {{getFadeTime()}} min
         </v-row>
         
-        <v-row style="height: 65px">
+        <v-row style="height: 65px" class="ml-0 mr-0" >
         </v-row>
 
-        <v-row justify="center" class="mt-12" style="width: 100%; margin-left: 1px">
+        <v-row justify="center" class="mt-12 ml-0 mr-0" style="width: 100%; margin-left: 0px">
             <v-btn 
                 color="black"
                 elevation="15"
@@ -41,7 +39,7 @@ export default {
     methods: {
         getAlarmTime: function() {
             const alarm = this.alarmBackend.getAlarm()
-            return alarm.time.getHours().toLocaleString() + ":" + alarm.time.getMinutes().toLocaleString()
+            return alarm.time.toLocaleTimeString(undefined, {timeStyle: "short"})
         },
         getFadeTime: function() {
             const alarm = this.alarmBackend.getAlarm()
