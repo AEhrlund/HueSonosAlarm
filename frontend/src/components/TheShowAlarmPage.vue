@@ -34,12 +34,12 @@
 
 <script>
 export default {
-    name: "ShowAlarm",
-    props: ["alarmBackend"],
+    name: 'ShowAlarm',
+    props: ['alarmBackend'],
     methods: {
         getAlarmTime: function() {
             const alarm = this.alarmBackend.getAlarm()
-            return alarm.time.toLocaleTimeString(undefined, {timeStyle: "short"})
+            return alarm.time.toLocaleTimeString(undefined, {timeStyle: 'short'})
         },
         getFadeTime: function() {
             const alarm = this.alarmBackend.getAlarm()

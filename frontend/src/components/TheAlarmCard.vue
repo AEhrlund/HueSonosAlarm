@@ -21,7 +21,7 @@
 import TheSetAlarmPage from "./TheSetAlarmPage"
 import TheShowAlarmPage from "./TheShowAlarmPage"
 import TheConfigurePage from "./TheConfigurePage"
-import alarmBackend from "../AlarmBackendMock.js"
+import alarmHandler from "../AlarmHandler.js"
 
 export default {
     name: "TheAlarmCard",
@@ -32,7 +32,7 @@ export default {
     },
     data: function() {
         return {
-            alarmBackend: alarmBackend
+            alarmBackend: alarmHandler
         }
     }
 };
