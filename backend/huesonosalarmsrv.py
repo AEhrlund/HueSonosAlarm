@@ -14,7 +14,7 @@ def index():
 
 @app.route('/huesonosalarm/setalarm', methods=['POST'])
 def setalarm():
-    print('setalarm')
+    print('Set alarm')
     global mockdata
     mockdata = request.get_json()
     print(mockdata)
@@ -22,7 +22,7 @@ def setalarm():
 
 @app.route('/huesonosalarm/cancelalarm', methods=['DELETE'])
 def cancelalarm():
-    print('cancelalarm')
+    print('Cancel alarm')
     global mockdata
     mockdata['time'] = None
     print(mockdata)
@@ -30,7 +30,7 @@ def cancelalarm():
 
 @app.route('/huesonosalarm/getalarm', methods=['GET'])
 def getalarm():
-    print('getalarm')
+    print('Get alarm')
     global mockdata
     print(mockdata)
     return Response(json.dumps(mockdata), mimetype='text/json')
