@@ -1,7 +1,5 @@
 import { expect } from 'chai'
-// import axios from 'axios'
 import moxios from 'moxios'
-// import { shallowMount } from '@vue/test-utils'
 import AlarmHandler from '@/AlarmHandler.js'
 
 describe('AlarmHandler.js', () => {
@@ -25,6 +23,19 @@ describe('AlarmHandler.js', () => {
         const response = await AlarmHandler.getAlarm()
         expect(response.time).to.equal(time)
         expect(response.fadein).to.equal(fadein)
+    })
+
+    it('Test getAlarm not set', async () => {
+        const time = undefined
+        const fadein = 8
+        moxios.stubRequest('http://127.0.0.1:5000/huesonosalarm/getalarm', {
+            status: 200,
+            responseText: {
+                time: time, fadein: fadein
+            }
+        })
+        const response = await AlarmHandler.getAlarm()
+        expect(response).to.equal(undefined)
     })
 
     it('Test getAlarm fail', async () => {

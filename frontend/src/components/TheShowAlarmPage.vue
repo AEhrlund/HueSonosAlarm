@@ -22,7 +22,7 @@
                 elevation="15"
                 large
                 block
-                v-on:click="alarmBackend.cancelAlarm()">
+                v-on:click="alarmHandler.cancelAlarm()">
                 <span style="color: white">
                     Clear Alarm
                 </span>
@@ -35,14 +35,14 @@
 <script>
 export default {
     name: 'ShowAlarm',
-    props: ['alarmBackend'],
+    props: ['alarmHandler'],
     methods: {
         getAlarmTime: function() {
-            const alarm = this.alarmBackend.getAlarm()
+            const alarm = this.alarmHandler.getAlarm()
             return alarm.time.toLocaleTimeString(undefined, {timeStyle: 'short'})
         },
         getFadeTime: function() {
-            const alarm = this.alarmBackend.getAlarm()
+            const alarm = this.alarmHandler.getAlarm()
             return alarm.fade
         }
     }

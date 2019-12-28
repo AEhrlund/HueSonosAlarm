@@ -102,7 +102,7 @@ import moment from 'moment'
 
 export default {
     name: 'SetAlarm',
-    props: ['alarmBackend'],
+    props: ['alarmHandler'],
     methods: {
         setAlarm: function(time, fadein) {
             time = moment(time.time, 'HH:mm')
@@ -110,7 +110,7 @@ export default {
             if (time < now) {
                 time.add(1, 'days')
             }
-            this.alarmBackend.setAlarm(time, fadein.fadein)
+            this.alarmHandler.setAlarm(time, fadein.fadein)
         }
     },
     data() {

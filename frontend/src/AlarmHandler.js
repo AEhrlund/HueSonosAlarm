@@ -6,7 +6,11 @@ var backendMock = {
     },
     getAlarm: async function() {
         const response = await axios.get('http://127.0.0.1:5000/huesonosalarm/getalarm')
-        return { time: response.data.time, fadein: response.data.fadein }
+        var data = undefined
+        if (response.data.time != undefined) {
+            data = { time: response.data.time, fadein: response.data.fadein }
+        } 
+        return data
     },
     cancelAlarm: async function() {
         await axios.delete('http://127.0.0.1:5000/huesonosalarm/cancelalarm')

@@ -4,14 +4,14 @@
         color="blue darken-4" 
         height="400px">
 
-      <div v-if="alarmBackend.configured() != true">
+      <div v-if="alarmHandler.configured() != true">
           <TheConfigurePage />
       </div>
-      <div v-else-if="alarmBackend.getAlarm()">
-          <TheShowAlarmPage v-bind:alarmBackend="alarmBackend" />
+      <div v-else-if="alarmHandler.getAlarm()">
+          <TheShowAlarmPage v-bind:alarmHandler="alarmHandler" />
       </div>
       <div v-else>
-          <TheSetAlarmPage v-bind:alarmBackend="alarmBackend" />
+          <TheSetAlarmPage v-bind:alarmHandler="alarmHandler" />
       </div>
 
     </v-card>
@@ -32,7 +32,7 @@ export default {
     },
     data: function() {
         return {
-            alarmBackend: alarmHandler
+            alarmHandler: alarmHandler
         }
     }
 };
