@@ -2,20 +2,29 @@ import axios from 'axios'
 import moment from 'moment'
 
 var backendMock = {
-    configured: function() { 
+    isConfigured: async function() { 
         return true
     },
+
     getAlarm: async function() {
         const response = await axios.get('http://127.0.0.1:5000/huesonosalarm/getalarm')
-        var data = undefined
-        if (response.data.time != undefined) {
-            data = { time: response.data.time, fadein: response.data.fadein }
-        } 
-        return data
+        return { time: response.data.time, fadein: response.data.fadein }
     },
+
+    isAlarmSet: async function () {
+        const response = await this.getAlarm()
+        var alarmSet = true
+        if (response.time === null) {
+            alarmSet = false
+        }
+        console.log('isAlarmSet: ' + alarmSet) // eslint-disable-line no-console
+        return alarmSet
+    },
+
     cancelAlarm: async function() {
         await axios.delete('http://127.0.0.1:5000/huesonosalarm/cancelalarm')
     },
+
     setAlarm: async function(time, fadein) {
         if (typeof time != 'string') {
             throw new TypeError('time is not string')

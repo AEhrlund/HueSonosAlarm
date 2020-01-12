@@ -25,19 +25,6 @@ describe('AlarmHandler.js', () => {
         expect(response.fadein).to.equal(fadein)
     })
 
-    it('Test getAlarm not set', async () => {
-        const time = undefined
-        const fadein = 8
-        moxios.stubRequest('http://127.0.0.1:5000/huesonosalarm/getalarm', {
-            status: 200,
-            responseText: {
-                time: time, fadein: fadein
-            }
-        })
-        const response = await AlarmHandler.getAlarm()
-        expect(response).to.equal(undefined)
-    })
-
     it('Test getAlarm fail', async () => {
         moxios.stubRequest('http://127.0.0.1:5000/huesonosalarm/getalarm', {
             status: 500
@@ -49,6 +36,32 @@ describe('AlarmHandler.js', () => {
         catch (error) {
             expect(true).to.be.true
         }
+    })
+
+    it('Test isAlarmSet set', async () => {
+        const time = '12:13'
+        const fadein = 8
+        moxios.stubRequest('http://127.0.0.1:5000/huesonosalarm/getalarm', {
+            status: 200,
+            responseText: {
+                time: time, fadein: fadein
+            }
+        })
+        const response = await AlarmHandler.isAlarmSet()
+        expect(response).to.be.true
+    })
+
+    it('Test isAlarmSet not set', async () => {
+        const time = null
+        const fadein = 8
+        moxios.stubRequest('http://127.0.0.1:5000/huesonosalarm/getalarm', {
+            status: 200,
+            responseText: {
+                time: time, fadein: fadein
+            }
+        })
+        const response = await AlarmHandler.isAlarmSet()
+        expect(response).to.be.false
     })
 
     it('Test cancelAlarm', async () => {
