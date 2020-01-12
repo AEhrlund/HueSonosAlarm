@@ -1,4 +1,5 @@
 import json
+import time
 from flask import Flask, render_template, request, Response
 
 app = Flask(__name__,
@@ -18,6 +19,7 @@ def setalarm():
     global mockdata
     mockdata = request.get_json()
     print(mockdata)
+    time.sleep(3)
     return "Alarm successfully set"
 
 @app.route('/huesonosalarm/cancelalarm', methods=['DELETE'])
@@ -26,6 +28,7 @@ def cancelalarm():
     global mockdata
     mockdata['time'] = None
     print(mockdata)
+    time.sleep(3)
     return "Alarm successfully canceled"
 
 @app.route('/huesonosalarm/getalarm', methods=['GET'])
@@ -33,4 +36,5 @@ def getalarm():
     print('Get alarm')
     global mockdata
     print(mockdata)
+    time.sleep(3)
     return Response(json.dumps(mockdata), mimetype='text/json')
