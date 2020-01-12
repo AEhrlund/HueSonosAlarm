@@ -104,13 +104,13 @@ export default {
     props: ['alarmHandler'],
     methods: {
         setAlarm: function(time, fadein) {
-            this.alarmHandler.setAlarm(time.time, fadein.fadein)
+            this.alarmHandler.setAlarm(time.time, parseInt(fadein.fadein, 10))
         }
     },
     data() {
         return {
             time: '07:00',
-            fadein: '20',
+            fadein: this.alarmHandler.getAlarmFadein(),
             modalTime: false,
         }
     }
