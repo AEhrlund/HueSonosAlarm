@@ -5,7 +5,7 @@
         :img="require('../assets/Clouds.jpg')">
 
         <v-card-text class="text-center subtitle-1 bottom-text-style">
-            © Alf Ehrlund 2019
+            © Alf Ehrlund 2020
         </v-card-text>
 
     </v-card>
