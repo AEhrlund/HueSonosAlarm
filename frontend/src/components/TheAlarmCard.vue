@@ -5,7 +5,7 @@
         height="400px">
 
       <div v-if="alarmHandler.notLoaded() | alarmHandler.working()">
-          Loading 1...
+          <TheLoadingPage />
       </div>
       <div v-else-if="alarmHandler.notConfigured()">
           <TheConfigurePage />
@@ -24,6 +24,7 @@
 import TheSetAlarmPage from "./TheSetAlarmPage"
 import TheShowAlarmPage from "./TheShowAlarmPage"
 import TheConfigurePage from "./TheConfigurePage"
+import TheLoadingPage from "./TheLoadingPage.vue"
 import alarmHandlerBackend from "../AlarmHandler.js"
 
 export default {
@@ -32,7 +33,8 @@ export default {
     components: {
         TheSetAlarmPage,
         TheShowAlarmPage,
-        TheConfigurePage
+        TheConfigurePage,
+        TheLoadingPage
     },
     
     data: function() {
