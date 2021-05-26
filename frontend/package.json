@@ -13,7 +13,7 @@
     "core-js": "^3.4.3",
     "fibers": "^4.0.2",
     "moment": "^2.24.0",
-    "node-sass": "^4.13.0",
+    "node-sass": "^4.13.1",
     "vue": "^2.6.10",
     "vue-axios": "^2.1.5",
     "vuetify": "^2.1.0"
